@@ -1,25 +1,81 @@
-import React from 'react'
+"use client";
+import React, { useState } from 'react';
+
+const services = [
+  {
+    name: 'Family Law',
+    description: 'Our Family Law attorneys provide counsel and representation in all aspects of family law, including divorce, child custody, child support, alimony, and more.',
+    details: 'Detailed explanation about Family Law services, including the benefits of consulting our experts and how we ensure a smooth process during legal disputes.',
+  },
+  {
+    name: 'Personal Injury',
+    description: 'Our Personal Injury attorneys provide compassionate and experienced representation to individuals who have been injured due to the negligence of another.',
+    details: 'We specialize in Personal Injury claims and aim to secure maximum compensation for our clients, handling everything from legal paperwork to representation in court.',
+  },
+  {
+    name: 'Criminal Defense',
+    description: 'Our Criminal Defense attorneys provide tenacious and strategic representation to individuals facing criminal charges.',
+    details: 'Our Criminal Defense team is dedicated to protecting your rights and achieving the best possible outcome in your case, no matter the complexity.',
+  },
+  {
+    name: 'Business Law',
+    description: 'Our Business Law attorneys provide legal counsel and representation to businesses of all sizes, from start-ups to large corporations.',
+    details: 'We assist businesses with everything from formation and contracts to mergers and dispute resolution, ensuring legal compliance and strategic growth.',
+  },
+  {
+    name: 'Real Estate Law',
+    description: 'Our Real Estate Law attorneys provide legal counsel and representation to individuals and businesses involved in real estate transactions.',
+    details: 'Our Real Estate services include document preparation, title checks, dispute resolution, and smooth closing procedures for buyers and sellers alike.',
+  },
+  {
+    name: 'Estate Planning',
+    description: 'Our Estate Planning attorneys provide legal counsel and representation to individuals and families seeking to plan for the future.',
+    details: 'We offer comprehensive estate planning services, including drafting wills, setting up trusts, and ensuring smooth asset transfer for your loved ones.',
+  },
+];
 
 const Hero = () => {
-    return (
-        <div className='flex flex-col items-center justify-center h-screen bg-orange-200 py-1 px-4'>
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-center text-center text-black px-4 md:px-12 gap-6">
-                <p className="text-base md:text-xl max-w-3xl leading-relaxed">
-                    A registered professional law firm based in Tanzania, specializing in Corporate Governance,
-                    Mergers & Acquisitions, Investment, Intellectual Property Law, Real Estate, Conveyancing,
-                    and Tax Planning. With over ten years of collective experience, we offer innovative legal
-                    business solutions nationwide from our headquarters in Arusha.
-                </p>
-                <img src="./law.png" alt="Law firm logo" className='w-16 md:w-20 h-auto' />
-            </div>
-            <a
-                href="http://www.lawbay.co.tz"
-                className="mt-6 px-6 md:px-8 py-3 md:py-4 bg-orange-300 text-black rounded-lg text-base md:text-lg font-medium hover:bg-orange-100 transition"
-            >
-                Learn More
-            </a>
-        </div>
-    )
-}
+  const [selectedService, setSelectedService] = useState<{name: string; description: string; details: string;} | null>(null);
 
-export default Hero
+  return (
+    <section className="bg-white py-8">
+      <div className="container mx-auto p-4">
+        <h2 className="text-3xl font-bold text-gray-800">Our Services</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="bg-orange-200 p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105"
+            >
+              <h3 className="text-2xl font-bold text-gray-800">{service.name}</h3>
+              <p className="mt-2 text-lg text-gray-600">{service.description}</p>
+              <button
+                className="mt-4 text-orange-700 underline hover:text-orange-900"
+                onClick={() => setSelectedService(service)}
+              >
+                Read More
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {selectedService && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+              <h3 className="text-2xl font-bold text-gray-800">{selectedService.name}</h3>
+              <p className="mt-4 text-lg text-gray-600">{selectedService.details}</p>
+              <button
+                className="mt-6 bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700"
+                onClick={() => setSelectedService(null)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

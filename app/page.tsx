@@ -1,3 +1,4 @@
+import Footer from '@/pages/footer/page';
 import Hero from '@/pages/hero/page';
 import Navbar from '@/pages/nav/page';
 import Team from '@/pages/team/page';
@@ -7,6 +8,8 @@ function App() {
     <div >
       <Navbar />
       <Team />
+      <Hero />
+      <Footer />
     </div>
   );
 }
