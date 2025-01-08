@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import { Slide } from 'react-awesome-reveal';
 
 const services = [
   {
@@ -39,6 +40,7 @@ const Hero = () => {
 
   return (
     <section className="bg-white py-8">
+      <Slide direction="up" triggerOnce>
       <div className="container mx-auto p-4">
         <h2 className="text-3xl font-bold text-gray-800">Our Services</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
@@ -74,6 +76,7 @@ const Hero = () => {
           </div>
         )}
       </div>
+      </Slide>
     </section>
   );
 };
