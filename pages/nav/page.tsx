@@ -150,14 +150,14 @@ const Navbar = () => {
         </div>
       </nav>
       <div className="pt-20">
-        <Slide direction="up" triggerOnce>
+        <Slide direction="left" triggerOnce>
 
           <div className="relative">
             <div
-              className="absolute inset-0 z-0 bg-cover bg-center"
+              className="absolute inset-0 z-0 bg-black bg-cover bg-center"
               style={{ backgroundImage: "url('./law.png')", opacity: "0.3" }}
             />
-            <div className="relative flex flex-col items-center justify-center min-h-screen text-black dark:text-white py-8 px-4">
+            <div className="relative flex flex-col items-center justify-center min-h-screen text-white dark:text-white py-8 px-4">
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-center text-center px-4 md:px-12 gap-6">
                 <p className="text-base md:text-xl max-w-3xl leading-snug">
                   A registered professional law firm based in Tanzania, specializing
