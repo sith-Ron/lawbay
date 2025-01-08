@@ -6,7 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-row justify-between bottom-0 left-0 right-0 p-4 bg-orange-200 shadow-md ">
+    <footer className="flex flex-row  justify-between bottom-0 left-0 right-0 p-4 bg-orange-200 shadow-md ">
         <p className="text-center text-gray-800">
             &copy; 2025 Law Bay Advocates. All rights reserved.
         </p>
